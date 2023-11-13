@@ -1,0 +1,2 @@
+# JavaAmmunitionDepot
+该存储库为个人创建Java代码弹药库，主要存放日常学习工作中常用的工具类。
