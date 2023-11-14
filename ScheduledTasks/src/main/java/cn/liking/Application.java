@@ -6,11 +6,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author LIDADA
+ * [1]注解方式启动定时任务：@EnableScheduling
  */
 @SpringBootApplication
-/*
-  [1]注解方式启动定时任务
- */
 @EnableScheduling
 public class Application {
     public static void main(String[] args) {

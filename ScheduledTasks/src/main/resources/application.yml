@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: springTask
+timing-task:
+  cron1: 0/1 * * * * ?
+  cron2: 0/5 * * * * ?
