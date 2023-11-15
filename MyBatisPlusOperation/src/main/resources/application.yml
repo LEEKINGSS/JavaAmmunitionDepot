@@ -4,13 +4,74 @@ spring:
   application:
     name: MyBatisOperation
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mybatis
+    url: jdbc:mysql://10.1.31.45:3306/bdeicm_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&autoReconnect=true&failOverReadOnly=false
     username: root
-    password: 123.com
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  #目的是为了省略resultType里的代码量
-  type-aliases-package: cn.liking.pojo
+    password: root
+    # 数据库驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      web-stat-filter:
+        enabled: false
+      stat-view-servlet:
+        enabled: false
+      # druid监控拦截
+      filters: stat
+      # 最大连接数
+      max-active: 20
+      # 初始化连接数
+      initial-size: 1
+      # 最大等待响应时间（毫秒）
+      max-wait: 60000
+      # 最小连接数
+      min-idle: 1
+      # 配置心跳 检测需要关闭的空闲连接时间（毫秒）
+      time-between-eviction-runs-millis: 60000
+      # 连接在连接池中最小生存时间（毫秒）
+      min-evictable-idle-time-millis: 30000
+      # 检测连接是否有效
+      validation-query: select 'x'
+      # 建议配置为true，不影响性能，并且保证安全性。
+      # 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，
+      # 执行validationQuery检测连接是否有效。
+      test-while-idle: true
+      # 申请连接时执行validationQuery检测连接是否有效,设置true会降低性能
+      # 这里设置为true防止取到的链接不可用
+      test-on-borrow: true
+      # 归还连接时执行validationQuery检测连接是否有效,设置true会降低性能
+      test-on-return: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小  如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。
+      pool-prepared-statements: false
+      max-open-prepared-statements: 20
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+      update-strategy: not_empty
+      select-strategy: not_empty
   configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  mapper-locations: classpath:mapper/*.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  #      base-path: '/metrics'
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    export:
+      prometheus:
+        enabled: true
+#      jmx:
+#        enabled: true
