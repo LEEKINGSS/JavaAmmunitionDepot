@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: MyBatisOperation
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis
+    username: root
+    password: 123.com
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  #目的是为了省略resultType里的代码量
+  type-aliases-package: cn.liking.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

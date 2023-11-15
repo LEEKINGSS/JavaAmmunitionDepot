@@ -14,7 +14,7 @@
     <artifactId>MyBatisOperation</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>MyBatisOperation</name>
-    <description>MyBatis操作</description>
+    <description>MyBatisPlus操作</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -25,22 +25,7 @@
     </properties>
 
     <dependencies>
-        <!--mybatis 依赖-->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.5</version>
-        </dependency>
-
-        <!--mysql 驱动-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.46</version>
-        </dependency>
-
-
-
+        <!--spring boot web 依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -62,11 +47,18 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!--lombok 依赖-->
         <dependency>
-            <!-- lombok-->
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <!-- junit测试依赖 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -94,5 +86,6 @@
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
 </project>
