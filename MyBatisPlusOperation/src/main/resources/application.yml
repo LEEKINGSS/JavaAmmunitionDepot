@@ -4,7 +4,7 @@ spring:
   application:
     name: MyBatisOperation
   datasource:
-    url: jdbc:mysql://10.1.31.45:3306/bdeicm_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://bj-cynosdbmysql-grp-hjy6r29e.sql.tencentcdb.com:20553/bdeicm_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: root
     # 数据库驱动
