@@ -2,11 +2,11 @@ server:
   port: 8080
 spring:
   application:
-    name: MyBatisOperation
+    name: MyBatisPlusOperation
   datasource:
-    url: jdbc:mysql://bj-cynosdbmysql-grp-hjy6r29e.sql.tencentcdb.com:20553/bdeicm_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://bj-cynosdbmysql-grp-hjy6r29e.sql.tencentcdb.com:20553/mybatisplus_db?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&autoReconnect=true&failOverReadOnly=false
     username: root
-    password: root
+    password: LIpeng158.
     # 数据库驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 使用druid数据源
@@ -55,6 +55,7 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     auto-mapping-behavior: full
+    # 开启mp的日志（输出到控制台）
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
   mapper-locations: classpath:mapper/*.xml
