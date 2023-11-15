@@ -29,7 +29,7 @@ public class MyBatisPlusTest {
         user.setName("liking");
         user.setPassword("123.com");
         user.setAge(12);
-        user.setTel("4006184000");
+        user.setTelephone("4006184000");
         userMapper.insert(user);
         //查询数据
         System.out.println(userMapper.selectById(1L));
@@ -38,7 +38,7 @@ public class MyBatisPlusTest {
         user.setName("liking");
         user.setPassword("123.com");
         user.setAge(12);
-        user.setTel("4006184000");
+        user.setTelephone("4006184000");
         userMapper.updateById(user);
         //删除数据
         userMapper.deleteById(1L);
