@@ -25,9 +25,16 @@
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <druid.version>1.2.1</druid.version>
         <mysql.version>8.0.28</mysql.version>
+        <hutool-all.version>5.8.11</hutool-all.version>
     </properties>
 
     <dependencies>
+        <!--hutool工具类-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-all.version}</version>
+        </dependency>
         <!--代码生成器-->
         <dependency>
             <groupId>com.baomidou</groupId>
