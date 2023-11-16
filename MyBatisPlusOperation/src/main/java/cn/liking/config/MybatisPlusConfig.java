@@ -1,5 +1,6 @@
 package cn.liking.config;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
@@ -24,7 +25,10 @@ public class MybatisPlusConfig {
         //1 创建MybatisPlusInterceptor拦截器对象
         MybatisPlusInterceptor mpInterceptor = new MybatisPlusInterceptor();
         //2 添加分页拦截器
-        mpInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+        PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
+        paginationInnerInterceptor.setDbType(DbType.MYSQL);
+        paginationInnerInterceptor.setOverflow(true);
+        mpInterceptor.addInnerInterceptor(paginationInnerInterceptor);
         return mpInterceptor;
     }
 

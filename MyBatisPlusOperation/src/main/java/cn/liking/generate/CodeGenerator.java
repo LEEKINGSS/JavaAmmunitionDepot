@@ -32,6 +32,8 @@ public class CodeGenerator {
     private static final DataSourceConfig.Builder DATA_SOURCE_CONFIG = new DataSourceConfig.Builder(URL, USERNAME, PASSWORD);
 
     public static void main(String[] args) {
+        //查看生成文件所在位置
+        System.out.println(System.getProperty("user.dir") + "/MyBatisPlusOperation/src/main/java");
         //程序的入口方法
         FastAutoGenerator.create(DATA_SOURCE_CONFIG)
                 // 全局配置
