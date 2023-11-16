@@ -26,9 +26,16 @@
         <druid.version>1.2.1</druid.version>
         <mysql.version>8.0.28</mysql.version>
         <hutool-all.version>5.8.11</hutool-all.version>
+        <knife4j.version>3.0.3</knife4j.version>
     </properties>
 
     <dependencies>
+        <!--swagger依赖-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
         <!--hutool工具类-->
         <dependency>
             <groupId>cn.hutool</groupId>
