@@ -1,6 +1,8 @@
 package cn.liking.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
@@ -15,6 +17,15 @@ import lombok.*;
 @Data
 @TableName("user")
 public class User {
+
+    /**
+     * AUTO(1):使用数据库id自增策略控制id生成
+     * NONE(2):不使用id生成策略
+     * INPUT(3):用户输入id
+     * ASSIGN_ID(4):使用雪花算法生成id
+     * ASSIGN_UUID(5):使用UUID生成id
+     */
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     private String name;
