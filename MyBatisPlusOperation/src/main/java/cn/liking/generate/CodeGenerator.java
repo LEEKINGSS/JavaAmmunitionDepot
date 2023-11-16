@@ -1,4 +1,4 @@
-package cn.liking.genderate;
+package cn.liking.generate;
 
 import cn.liking.common.BaseController;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -43,7 +43,7 @@ public class CodeGenerator {
                         .outputDir(System.getProperty("user.dir") + "/MyBatisPlusOperation/src/main/java")
                         .disableOpenDir()
                         //启用Swagger注解支持，生成的代码中会包含Swagger相关的注解。
-                        //.enableSwagger()
+                        .enableSwagger()
                         )
                 .dataSourceConfig(builder -> builder.typeConvertHandler((globalConfig, typeRegistry, metaInfo) -> {
                     int typeCode = metaInfo.getJdbcType().TYPE_CODE;
@@ -94,7 +94,6 @@ public class CodeGenerator {
                 .templateEngine(new VelocityTemplateEngine())
                 .execute();
     }
-
     /**
      * 处理all的情况
      */
