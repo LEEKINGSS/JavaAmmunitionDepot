@@ -16,7 +16,7 @@ import java.util.Map;
  * Web统一返回格式
  *
  * @author liking
- * @date 2018/8/16 10:44
+ * @date 2023/11/16 10:44
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"data", "api", "msg", "code"})
