@@ -90,7 +90,8 @@ public class EmployeesController extends BaseController {
     @PostMapping("/remove")
     @ApiOperation("删除数据(可批量删除)")
     public Response remove(@RequestBody List<String> ids) {
-        iEmployeesService.removeByIds(ids);
+        List<Integer> intIds = ids.stream().map(item -> Integer.parseInt(item)).collect(java.util.stream.Collectors.toList());
+        iEmployeesService.removeByIds(intIds);
         return Response.getInstance().setOk(Response.CodeEnum.SUCCESSED, "", "success", null);
     }
 
