@@ -26,7 +26,9 @@ public class MybatisPlusConfig {
         MybatisPlusInterceptor mpInterceptor = new MybatisPlusInterceptor();
         //2 添加分页拦截器
         PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
+        //设置分页拦截器的数据库类型为 MySQL，这样分页拦截器会根据 MySQL 的语法来生成分页 SQL。
         paginationInnerInterceptor.setDbType(DbType.MYSQL);
+        // 设置分页拦截器的溢出处理策略为 true，表示当请求的页码超出总页数时，会自动返回最后一页的数据。
         paginationInnerInterceptor.setOverflow(true);
         mpInterceptor.addInnerInterceptor(paginationInnerInterceptor);
         return mpInterceptor;
