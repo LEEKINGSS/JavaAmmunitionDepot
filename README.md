@@ -100,5 +100,9 @@
 * 7.2. 配置:SwaggerConfig类
 * 7.3. 使用方式:启动项目后，访问http://localhost:8080/doc.html
 
-
+### 8. MybatisPlus联合查询
+* 8.1. 使用:
+  * 8.1.1. 编写实体类的扩展VO类
+  * 8.1.2. 重写page方法
+  * 8.1.3. 使用Stream流将实体类转换为VO对象
 
