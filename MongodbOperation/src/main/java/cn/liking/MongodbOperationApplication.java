@@ -1,4 +1,4 @@
-package cn.liking.config.cn.liking;
+package cn.liking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
