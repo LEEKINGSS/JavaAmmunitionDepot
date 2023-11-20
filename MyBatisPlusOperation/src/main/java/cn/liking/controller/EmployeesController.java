@@ -40,7 +40,7 @@ public class EmployeesController extends BaseController {
     @ApiOperation("分页列表查询")
     public Response list(@RequestBody PageQuery<Employees> pageQuery) {
         Page employeesPage = getPage(pageQuery);
-        Page page = iEmployeesService.page(employeesPage, Wrappers.lambdaQuery(pageQuery.getObj()));
+        Page page = iEmployeesService.pageEmployeesVOList(employeesPage, pageQuery.getObj());
         return Response.getInstance().setOk(Response.CodeEnum.SUCCESSED, "", "success", page);
     }
 

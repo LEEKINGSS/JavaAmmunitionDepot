@@ -1,6 +1,8 @@
 package cn.liking.service;
 
 import cn.liking.entity.Employees;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IEmployeesService extends IService<Employees> {
 
+    Page pageEmployeesVOList(Page employeesPage, Employees obj);
 }

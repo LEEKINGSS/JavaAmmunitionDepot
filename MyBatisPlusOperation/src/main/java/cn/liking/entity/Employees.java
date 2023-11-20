@@ -26,6 +26,23 @@ import lombok.Setter;
 @ApiModel(value = "Employees对象", description = "员工信息表")
 public class Employees implements Serializable {
 
+    public Employees() {
+    }
+
+    public Employees(Employees employees) {
+        this.employeeId = employees.getEmployeeId();
+        this.firstName = employees.getFirstName();
+        this.lastName = employees.getLastName();
+        this.email = employees.getEmail();
+        this.phoneNumber = employees.getPhoneNumber();
+        this.salary = employees.getSalary();
+        this.managerId = employees.getManagerId();
+        this.departmentId = employees.getDepartmentId();
+        this.createTime = employees.getCreateTime();
+        this.updateTime = employees.getUpdateTime();
+        this.deteled = employees.getDeteled();
+    }
+
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("用户id")
