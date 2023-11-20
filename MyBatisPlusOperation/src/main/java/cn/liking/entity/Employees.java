@@ -62,7 +62,7 @@ public class Employees implements Serializable {
     private String phoneNumber;
 
     @ApiModelProperty("用户工资")
-    private Object salary;
+    private Double salary;
 
     @ApiModelProperty("管理员id")
     private Integer managerId;
