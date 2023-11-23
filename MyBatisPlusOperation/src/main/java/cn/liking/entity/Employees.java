@@ -46,7 +46,7 @@ public class Employees implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("用户id")
-    @TableId(value = "employee_id", type = IdType.ASSIGN_ID)
+    @TableId(value = "employee_id", type = IdType.NONE)
     private Integer employeeId;
 
     @ApiModelProperty("用户名")
@@ -62,7 +62,7 @@ public class Employees implements Serializable {
     private String phoneNumber;
 
     @ApiModelProperty("用户工资")
-    private Object salary;
+    private Double salary;
 
     @ApiModelProperty("管理员id")
     private Integer managerId;

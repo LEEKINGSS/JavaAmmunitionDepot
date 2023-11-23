@@ -27,9 +27,24 @@
         <mysql.version>8.0.28</mysql.version>
         <hutool-all.version>5.8.11</hutool-all.version>
         <knife4j.version>3.0.3</knife4j.version>
+        <fastjson.version>1.2.83</fastjson.version>
+
     </properties>
 
     <dependencies>
+        <!--fastjson依赖——备份字符串转数据流必备-->
+        <dependency>
+            <groupId>com.github.tobato</groupId>
+            <artifactId>fastdfs-client</artifactId>
+            <version>1.27.2</version>
+        </dependency>
+        <!--fastjson依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
         <!--swagger依赖-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
