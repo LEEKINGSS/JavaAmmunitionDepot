@@ -21,10 +21,16 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot-starter-web.version>2.4.2</spring-boot-starter-web.version>
-
+        <knife4j.version>3.0.3</knife4j.version>
     </properties>
 
     <dependencies>
+        <!--swagger依赖-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
         <!--mongodb所需依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
