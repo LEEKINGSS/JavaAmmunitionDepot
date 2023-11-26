@@ -5,7 +5,5 @@ spring:
     name: mongodb-operation
   data:
     mongodb:
-      host: 10.1.31.45:27017
-      database: admin
-      username: bdeicm_user
+      uri: mongodb://10.1.31.45:27017/testdb
       password: '123456'
