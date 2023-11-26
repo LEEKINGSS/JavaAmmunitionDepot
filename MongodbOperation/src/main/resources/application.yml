@@ -3,3 +3,9 @@ server:
 spring:
   application:
     name: mongodb-operation
+  data:
+    mongodb:
+      host: 10.1.31.45:27017
+      database: admin
+      username: bdeicm_user
+      password: '123456'
