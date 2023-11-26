@@ -4,24 +4,24 @@ import cn.liking.entity.Employees;
 import cn.liking.service.IDataBackService;
 import cn.liking.service.IEmployeesService;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.apache.commons.io.IOUtils;
 
 
 import java.io.*;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 数据库备份接口实现类
  *
  * @author liking
  */
+@Slf4j
 @Service
 public class DataBackServiceImpl implements IDataBackService {
 
@@ -80,8 +80,13 @@ public class DataBackServiceImpl implements IDataBackService {
             //全量备份
             //查询所有员工信息
             List<Employees> employeesList = iEmployeesService.list();
+            //将数据的实现类与数据封装在一起方便后续反射使用
+            List<Map<String,Object>> mapList = new ArrayList<>();
+            Map<String,Object> map = new HashMap<>();
+            map.put("EmployeesServiceImpl",employeesList);
+            mapList.add(map);
             //把数据写入到文件中
-            String str = JSON.toJSONString(employeesList);
+            String str = JSON.toJSONString(mapList);
             InputStream inputStream = IOUtils.toInputStream(str);
             saveInputStreamToFile(inputStream, "employees.txt");
             Date date = new Date();
@@ -91,7 +96,12 @@ public class DataBackServiceImpl implements IDataBackService {
             //查询更新时间大于上次备份时间的员工信息
             List<Employees> employeesList = iEmployeesService.list(new LambdaQueryWrapper<Employees>().between(Employees::getUpdateTime, updateTime, new Date()));
             //把数据追加到文件中
-            String str = JSON.toJSONString(employeesList);
+            //将数据的实现类与数据封装在一起方便后续反射使用
+            List<Map<String,Object>> mapList = new ArrayList<>();
+            Map<String,Object> map = new HashMap<>();
+            map.put("EmployeesServiceImpl",employeesList);
+            mapList.add(map);
+            String str = JSON.toJSONString(mapList);
             InputStream inputStream = IOUtils.toInputStream(str);
             saveInputStreamToFile(inputStream, "employees.txt");
             Date date = new Date();
@@ -116,10 +126,17 @@ public class DataBackServiceImpl implements IDataBackService {
             throw new RuntimeException(e);
         }
         //将字符串转换为对象
-        List<Employees> employeesList = JSON.parseArray(str, Employees.class);
-        System.out.println(employeesList);
-        //将数据写入到数据库中
-        iEmployeesService.saveBatch(employeesList);
+        JSONArray jsonArray = JSON.parseArray(str);
+        for (int i = 0; i < jsonArray.size(); i++) {
+            Map<String,Object> map = (Map<String, Object>) jsonArray.get(i);
+            Set<String> keySet = map.keySet();
+            for (String key : keySet) {
+                List<Employees> employeesList = (List<Employees>) map.get(key);
+                //将数据写入到数据库中
+//                iEmployeesService.saveBatch(employeesList);
+                log.info(employeesList.toString());
+            }
+        }
     }
 
 }
