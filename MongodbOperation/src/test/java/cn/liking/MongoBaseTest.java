@@ -96,7 +96,7 @@ public class MongoBaseTest {
     @Test
     public void testUpdate() {
         //1、条件
-        Query query = Query.query(Criteria.where("id").is("5fe404c26a787e3b50d8d5ad"));
+        Query query = Query.query(Criteria.where("id").is("6562f3c5ba76ad5b45426898"));
         //2、更新的数据
         Update update = new Update();
         update.set("age", 20);
@@ -104,11 +104,11 @@ public class MongoBaseTest {
     }
 
     /**
-     * 删除操作
+     * 根据id删除数据操作
      */
     @Test
     public void testRemove() {
-        Query query = Query.query(Criteria.where("id").is("5fe404c26a787e3b50d8d5ad"));
+        Query query = Query.query(Criteria.where("id").is("6562f3c5ba76ad5b45426898"));
         mongoTemplate.remove(query, Person.class);
     }
 
