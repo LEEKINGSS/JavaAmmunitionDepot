@@ -22,9 +22,24 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot-starter-web.version>2.4.2</spring-boot-starter-web.version>
         <knife4j.version>3.0.3</knife4j.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <hutool-all.version>5.8.11</hutool-all.version>
+
     </properties>
 
     <dependencies>
+        <!--hutool反射工具使用-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-all.version}</version>
+        </dependency>
+        <!--fastjson依赖——备份字符串转数据流必备-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
         <!--swagger依赖-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
