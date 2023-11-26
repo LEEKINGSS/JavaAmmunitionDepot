@@ -133,8 +133,8 @@ public class DataBackServiceImpl implements IDataBackService {
             for (String key : keySet) {
                 List<Employees> employeesList = (List<Employees>) map.get(key);
                 //将数据写入到数据库中
-//                iEmployeesService.saveBatch(employeesList);
-                log.info(employeesList.toString());
+                iEmployeesService.saveBatch(employeesList);
+//                log.info(employeesList.toString());
             }
         }
     }
