@@ -110,3 +110,24 @@
 ### 9. MybatisPlus 增量备份数据
 * 9.1. 备份:读取数据库中的数据，将数据转为JSON字符串，将JSON字符串转为字节流，将字节流写入文件中。可以将数据的实现类与数据封装在一起方便后续反射使用
 * 9.2. 恢复:读取文件中的字节流，将字节流转为JSON字符串，将JSON字符串转为实体类，将实体类写入数据库中
+
+## MongodbOperation库
+
+**作用**：Mongodb操作数据库工具类
+
+**基础**: 该库基于SpringBoot2.4.2.RELEASE版本
+
+### Mongodb依赖:
+* 1. mongodb依赖:spring-boot-starter-data-mongodb
+
+### 1. Mongodb基本操作:
+* 1.1. 增删改查-见测试类MongodbTest
+
+### 2. Mongodb存储文件：
+* 2.1. 配置类:MongoConfig
+* 2.2. 工具类:GridFsTemplateUtil
+* 2.3. 测试接口:FileTestController
+
+### 3. Mongodb中运用到的反射
+* 3.1. 工具类:ReflexMethodUtil
+* 3.2. 使用：与MybatisPlus中的备份数据配合使用
