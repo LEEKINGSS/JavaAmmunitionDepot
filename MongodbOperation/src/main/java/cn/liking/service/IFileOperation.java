@@ -17,4 +17,6 @@ public interface IFileOperation {
      * 获取文件
      */
     void getFile(String fileId, String bucket);
+
+    void deleteFile(String fileId, String businessBucket);
 }

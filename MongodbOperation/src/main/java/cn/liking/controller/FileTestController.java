@@ -45,6 +45,15 @@ public class FileTestController {
         return Response.getInstance().setOk(Response.CodeEnum.SUCCESSED, "", "success", "");
     }
 
+    /**
+     * 删除文件
+     */
+    @DeleteMapping("/delete/{fileId}")
+    public Response deleteFile(@PathVariable String fileId) {
+        fileOperation.deleteFile(fileId, SystemConstant.BUSINESS_BUCKET);
+        return Response.getInstance().setOk(Response.CodeEnum.SUCCESSED, "", "success", "");
+    }
+
 
 //        String content;
 //        try {
