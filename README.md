@@ -131,3 +131,17 @@
 ### 3. Mongodb中运用到的反射
 * 3.1. 工具类:ReflexMethodUtil
 * 3.2. 使用：与MybatisPlus中的备份数据配合使用
+
+## RedisOperation库
+
+**作用**：Redis操作数据库工具类
+
+**基础**: 该库基于SpringBoot2.4.2.RELEASE版本
+
+### Redis依赖:
+* 1. redis依赖:spring-boot-starter-data-redis
+* 2. redis对象池:commons-pool2
+
+### 1. Redis基本操作:
+* 1.1. 增删改查-见测试类RedisTest
+* 1.2. 具体操作见RedisUtil类
